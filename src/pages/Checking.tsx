@@ -63,8 +63,15 @@ export function Checking() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <section className="bg-[#072146] text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-[#072146] text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <img
+            src="https://images.pexels.com/photos/6289031/pexels-photo-6289031.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Checking Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold mb-6">{t('checking.title')}</h1>
           <p className="text-xl text-gray-300 max-w-3xl">{t('checking.subtitle')}</p>
         </div>

@@ -55,12 +55,15 @@ export function Home() {
               </button>
             </div>
             <div className="relative h-64 md:h-96 lg:h-[500px]">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg transform rotate-3"></div>
-              <div className="absolute inset-0 bg-white rounded-lg shadow-2xl flex items-center justify-center p-8">
-                <div className="text-center space-y-4">
-                  <div className="text-6xl md:text-8xl font-bold text-[#072146]">$250</div>
-                  <div className="text-2xl md:text-3xl text-gray-700">Cash Bonus</div>
-                  <div className="text-sm text-gray-500">Limited Time Offer</div>
+              <img
+                src="https://images.pexels.com/photos/4475523/pexels-photo-4475523.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Modern Banking Experience"
+                className="w-full h-full object-cover rounded-lg shadow-2xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#072146]/80 to-transparent rounded-lg flex items-end">
+                <div className="p-8 text-white">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-2">Banking Made Simple</h3>
+                  <p className="text-blue-100">Experience the future of financial services</p>
                 </div>
               </div>
             </div>
@@ -111,6 +114,138 @@ export function Home() {
             <div className="space-y-2">
               <div className="text-4xl md:text-5xl font-bold">24/7</div>
               <div className="text-blue-200">Customer Support</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#072146]">
+                Mobile Banking at Your Fingertips
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Manage your finances anywhere, anytime with our award-winning mobile app. Check balances, transfer money, deposit checks, and pay bills with just a few taps.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center text-gray-700">
+                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <span>Mobile check deposit</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <span>Instant payment notifications</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <span>Biometric security login</span>
+                </li>
+              </ul>
+            </div>
+            <div className="relative h-96 lg:h-[500px]">
+              <img
+                src="https://images.pexels.com/photos/4968630/pexels-photo-4968630.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Mobile Banking App"
+                className="w-full h-full object-cover rounded-lg shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1 relative h-96 lg:h-[500px]">
+              <img
+                src="https://images.pexels.com/photos/6289065/pexels-photo-6289065.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Financial Planning"
+                className="w-full h-full object-cover rounded-lg shadow-xl"
+              />
+            </div>
+            <div className="order-1 lg:order-2 space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#072146]">
+                Personalized Financial Guidance
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Our team of financial experts is here to help you achieve your goals. From retirement planning to investment strategies, we provide the guidance you need.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="bg-blue-100 rounded-full p-3 mr-4">
+                    <Shield className="text-[#1565C0]" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#072146] mb-1">Expert Advisors</h3>
+                    <p className="text-gray-600">Certified financial professionals at your service</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="bg-blue-100 rounded-full p-3 mr-4">
+                    <Smartphone className="text-[#1565C0]" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#072146] mb-1">Digital Tools</h3>
+                    <p className="text-gray-600">Advanced analytics and planning resources</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#072146] mb-4">
+              Complete Banking Solutions
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Everything you need to manage your financial life in one place
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="relative overflow-hidden rounded-lg shadow-lg group">
+              <img
+                src="https://images.pexels.com/photos/4968391/pexels-photo-4968391.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Credit Cards"
+                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#072146]/90 to-transparent flex items-end">
+                <div className="p-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Credit Cards</h3>
+                  <p className="text-blue-100">Rewards and cashback on every purchase</p>
+                </div>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-lg shadow-lg group">
+              <img
+                src="https://images.pexels.com/photos/6863332/pexels-photo-6863332.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Home Loans"
+                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#072146]/90 to-transparent flex items-end">
+                <div className="p-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Home Loans</h3>
+                  <p className="text-blue-100">Competitive rates for your dream home</p>
+                </div>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-lg shadow-lg group">
+              <img
+                src="https://images.pexels.com/photos/6772076/pexels-photo-6772076.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Investments"
+                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#072146]/90 to-transparent flex items-end">
+                <div className="p-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Investments</h3>
+                  <p className="text-blue-100">Grow your wealth with smart investing</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

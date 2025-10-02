@@ -60,8 +60,15 @@ export function Cards() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <section className="bg-gradient-to-r from-slate-800 to-slate-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-r from-slate-800 to-slate-700 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <img
+            src="https://images.pexels.com/photos/4968391/pexels-photo-4968391.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Cards Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold mb-6">{t('cards.title')}</h1>
           <p className="text-xl text-gray-100 max-w-3xl">{t('cards.subtitle')}</p>
         </div>
@@ -73,22 +80,41 @@ export function Cards() {
             {cardTypes.map((card, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100"
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border border-gray-100"
               >
-                <div className="mb-6">{card.icon}</div>
-                <h3 className="text-2xl font-bold mb-4 text-[#072146]">{card.name}</h3>
-                <p className="text-gray-600 mb-6">{card.description}</p>
-                <ul className="space-y-3 mb-8">
-                  {card.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <span className="text-green-500 mr-2 mt-1">✓</span>
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button className="w-full bg-[#F58220] hover:bg-[#e67617] text-white py-3 rounded-lg font-semibold transition-colors">
-                  {t('cards.order')}
-                </button>
+                <div className="relative h-48 bg-gradient-to-br from-blue-600 to-blue-800 overflow-hidden">
+                  <img
+                    src={
+                      index === 0
+                        ? "https://images.pexels.com/photos/50987/money-card-business-credit-card-50987.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        : index === 1
+                        ? "https://images.pexels.com/photos/164501/pexels-photo-164501.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        : "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    }
+                    alt={card.name}
+                    className="w-full h-full object-cover opacity-80"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-full p-4">
+                      {card.icon}
+                    </div>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold mb-4 text-[#072146]">{card.name}</h3>
+                  <p className="text-gray-600 mb-6">{card.description}</p>
+                  <ul className="space-y-3 mb-8">
+                    {card.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <span className="text-green-500 mr-2 mt-1">✓</span>
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="w-full bg-[#F58220] hover:bg-[#e67617] text-white py-3 rounded-lg font-semibold transition-colors">
+                    {t('cards.order')}
+                  </button>
+                </div>
               </div>
             ))}
           </div>
