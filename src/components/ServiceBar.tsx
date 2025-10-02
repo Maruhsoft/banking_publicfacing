@@ -1,17 +1,22 @@
-import { CreditCard, PiggyBank, Home, TrendingUp, Briefcase, Smartphone } from 'lucide-react';
+import { CreditCard, PiggyBank, Home, TrendingUp, Briefcase, Smartphone, Wallet } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-export function ServiceBar() {
+interface ServiceBarProps {
+  onNavigate?: (page: string) => void;
+}
+
+export function ServiceBar({ onNavigate }: ServiceBarProps) {
   const { t } = useLanguage();
 
   const services = [
-    { icon: CreditCard, label: t('services.checking') },
-    { icon: PiggyBank, label: t('services.savings') },
-    { icon: CreditCard, label: t('services.creditCards') },
-    { icon: Home, label: t('services.mortgages') },
-    { icon: TrendingUp, label: t('services.investments') },
-    { icon: Briefcase, label: t('services.specialty') },
-    { icon: Smartphone, label: t('services.digital') },
+    { icon: CreditCard, label: t('services.checking'), page: 'checking' },
+    { icon: PiggyBank, label: t('services.savings'), page: 'savings' },
+    { icon: CreditCard, label: t('services.creditCards'), page: 'credit' },
+    { icon: Wallet, label: t('services.cards'), page: 'cards' },
+    { icon: Home, label: t('services.mortgages'), page: 'mortgages' },
+    { icon: TrendingUp, label: t('services.investments'), page: 'investments' },
+    { icon: Briefcase, label: t('services.specialty'), page: 'specialty' },
+    { icon: Smartphone, label: t('services.digital'), page: 'digital' },
   ];
 
   return (
@@ -21,6 +26,7 @@ export function ServiceBar() {
           {services.map((service, index) => (
             <button
               key={index}
+              onClick={() => onNavigate?.(service.page)}
               className="flex items-center space-x-2 whitespace-nowrap hover:text-blue-200 transition-colors flex-shrink-0"
             >
               <service.icon size={18} />

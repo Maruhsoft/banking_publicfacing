@@ -49,9 +49,10 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
         <div className="flex justify-between items-center h-16">
           <button
             onClick={() => onNavigate('home')}
-            className="text-2xl font-bold hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
           >
-            {bankData.bankName}
+            <img src="/icons8-bank-48.png" alt="Bank Logo" className="h-8 w-8" />
+            <span className="text-2xl font-bold">{bankData.bankName}</span>
           </button>
 
           <nav className="hidden md:flex items-center space-x-8">
