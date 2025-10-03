@@ -1,0 +1,35 @@
+{
+  "bankName": "IBK 기업은행",
+  "tagline": "Your Trusted Financial Partner Worldwide",
+  "contact": {
+    "email": "support@ibk.digital",
+    "phone": "+1-800-555-6674",
+    "hkPhone": "+852-0874-5678"
+  },
+  "addresses": {
+    "usHQ": {
+      "address": "173 Liberty Avenue",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10631",
+      "country": "USA"
+    },
+    "hongKong": {
+      "address": "88 Finance Street",
+      "city": "Central",
+      "region": "Hong Kong",
+      "country": "Hong Kong SAR"
+    },
+    "london": {
+      "address": "45 Canary Wharf",
+      "city": "London",
+      "postCode": "E14 5AB",
+      "country": "United Kingdom"
+    }
+  },
+  "liveChatKey_smartsupp": "967b6422344a441453e4ca46e08f1cd7c64224ce",
+  "externalUrls": {
+    "login": "https://e.ibk.digital/user/login",
+    "signup": "https://e.ibk.digital/user/register"
+  }
+}

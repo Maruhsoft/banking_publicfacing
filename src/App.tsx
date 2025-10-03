@@ -3,7 +3,6 @@ import { LanguageProvider } from './context/LanguageContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { ServiceBar } from './components/ServiceBar';
-import { SmartSuppChat } from './components/SmartSuppChat';
 import { Home } from './pages/Home';
 import { Personal } from './pages/Personal';
 import { Business } from './pages/Business';
@@ -65,7 +64,6 @@ function App() {
         <ServiceBar onNavigate={setCurrentPage} />
         <main className="flex-grow">{renderPage()}</main>
         <Footer onNavigate={setCurrentPage} />
-        <SmartSuppChat />
       </div>
     </LanguageProvider>
   );

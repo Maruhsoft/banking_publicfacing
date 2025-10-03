@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, Shield, Lock, Wifi } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useBankData } from '../hooks/useBankData';
 import { Language } from '../types';
@@ -45,6 +45,24 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
 
   return (
     <header className="bg-[#072146] text-white sticky top-0 z-50 shadow-lg">
+      <div className="bg-[#051833] border-b border-blue-900/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-end space-x-6 py-2 text-xs">
+            <div className="flex items-center space-x-1.5 text-green-400">
+              <Wifi size={14} />
+              <span>Connected</span>
+            </div>
+            <div className="flex items-center space-x-1.5 text-blue-300">
+              <Lock size={14} />
+              <span>256-bit Encryption</span>
+            </div>
+            <div className="flex items-center space-x-1.5 text-blue-300">
+              <Shield size={14} />
+              <span>FDIC Insured</span>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <button

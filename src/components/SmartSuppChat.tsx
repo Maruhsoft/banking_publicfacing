@@ -3,9 +3,9 @@ import { useBankData } from '../hooks/useBankData';
 
 declare global {
   interface Window {
-    smartsupp?: (command: string, ...args: any[]) => void;
+    smartsupp?: any;
+    _smartsupp?: any;
     $smartsupp?: any;
-    smartsupp_key?: string;
   }
 }
 
@@ -13,33 +13,32 @@ export function SmartSuppChat() {
   const bankData = useBankData();
 
   useEffect(() => {
-    if (!bankData || window.$smartsupp) return;
+    if (!bankData) return;
 
-    window.smartsupp_key = bankData.liveChatKey_smartsupp;
+    if (window.smartsupp || document.querySelector('script[src*="smartsuppchat.com"]')) {
+      return;
+    }
+
+    window._smartsupp = window._smartsupp || {};
+    window._smartsupp.key = bankData.liveChatKey_smartsupp;
+
+    window.smartsupp = window.smartsupp || function() {
+      (window.smartsupp._ = window.smartsupp._ || []).push(arguments);
+    };
+    window.smartsupp._ = window.smartsupp._ || [];
 
     const script = document.createElement('script');
     script.type = 'text/javascript';
+    script.charset = 'utf-8';
     script.async = true;
-    script.innerHTML = `
-      var _smartsupp = _smartsupp || {};
-      _smartsupp.key = '${bankData.liveChatKey_smartsupp}';
-      window.smartsupp||(function(d) {
-        var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-        s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-        c.type='text/javascript';c.charset='utf-8';c.async=true;
-        c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-      })(document);
-    `;
-    document.head.appendChild(script);
+    script.src = 'https://www.smartsuppchat.com/loader.js?';
 
-    return () => {
-      const existingScript = document.querySelector(
-        'script[src*="smartsuppchat.com"]'
-      );
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
+    const firstScript = document.getElementsByTagName('script')[0];
+    if (firstScript && firstScript.parentNode) {
+      firstScript.parentNode.insertBefore(script, firstScript);
+    } else {
+      document.head.appendChild(script);
+    }
   }, [bankData]);
 
   return null;
