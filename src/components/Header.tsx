@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Globe, Shield, Lock, Wifi } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useBankData } from '../hooks/useBankData';
@@ -22,8 +22,22 @@ const languageNames: Record<Language, string> = {
 export function Header({ currentPage, onNavigate }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
   const { language, setLanguage, t } = useLanguage();
   const bankData = useBankData();
+
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
 
   if (!bankData) return null;
 
@@ -48,9 +62,13 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
       <div className="bg-[#051833] border-b border-blue-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-end space-x-6 py-2 text-xs">
-            <div className="flex items-center space-x-1.5 text-green-400">
+            <div className={`flex items-center space-x-1.5 transition-colors ${
+              isOnline
+                ? 'text-green-400 animate-pulse'
+                : 'text-gray-400'
+            }`}>
               <Wifi size={14} />
-              <span>Connected</span>
+              <span>{isOnline ? 'Connected' : 'Disconnected'}</span>
             </div>
             <div className="flex items-center space-x-1.5 text-blue-300">
               <Lock size={14} />
